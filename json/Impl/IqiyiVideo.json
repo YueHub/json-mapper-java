@@ -1,0 +1,46 @@
+{
+    "semImpl" : {
+        "document" : {
+            "impl" : {
+               "interface" : "VideoInterface",
+               "sameAs" : {
+                    "writer" : "content.writer",
+                    "tags" : "content.tag",
+                    "name" : "content.name",
+                    "description" : "content.description"
+               },
+               "required" : [
+                    "writer",
+                    "description",
+                    "tags"
+               ]
+            },
+            "props" : {
+               "重要的额外属性1" : {
+               		"path" : "content.重要的额外属性1",
+                    "isArr" : false,
+                    "dataType" : "String",
+                    "unique" : false,
+                    "required" : true,
+                    "desc" : "重要的额外属性1"
+                },
+               "重要的额外属性2" : {
+               		"path" : "重要的额外属性2",
+                    "isArr" : false,
+                    "dataType" : "String",
+                    "unique" : false,
+                    "required" : true,
+                    "desc" : "重要的额外属性2"
+                },
+                "testInner" : {
+                    "path" : "content.test.testInner",
+                    "isArr" : false,
+                    "dataType" : "String",
+                    "unique" : false,
+                    "required" : true,
+                    "desc" : "重要的额外属性2"
+                }
+			}
+        }
+    }
+}

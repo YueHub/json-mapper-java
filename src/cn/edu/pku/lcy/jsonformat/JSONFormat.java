@@ -26,9 +26,11 @@ public class JSONFormat {
     	if (Config.TEST_MODEL == true) { // 如果开启测试模式
     		String testJson = IOUtil.readFile(Config.TEST_FILE_PATH);
     		
-    		String result = JSONFormat.jsonObjectFormat(testJson);
-    		System.out.println("result:" + result);
-    		JSONFormat.logger.info("result:" + result);
+    		// String result = JSONFormat.jsonObjectFormat(testJson);
+    		String resultArray = JSONFormat.jsonArrayFormat(testJson);
+    		System.out.println("resultArray" + resultArray);
+//    		System.out.println("result:" + result);
+//    		JSONFormat.logger.info("result:" + result);
     	}
     }
     
@@ -122,8 +124,24 @@ public class JSONFormat {
      * @param jsonStr
      * @return
      */
-    public static String jsonArrayFormat(String jsonStr) {
-    	return null;
+    public static String jsonArrayFormat(String jsonStr) throws Exception {
+    	JSONArray jsonArray = null;
+    	try {
+    		jsonArray = JSON.parseArray(jsonStr);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		throw new Exception("json数组格式错误");
+    	}
+    	JSONArray resultJsonArray = new JSONArray();
+    	if(jsonArray != null) {
+    		for(Object object : jsonArray) {
+    			JSONObject jsonObject = (JSONObject) JSON.toJSON(object);
+    			String resultJsonObject = JSONFormat.jsonObjectFormat(jsonObject.toJSONString());
+    			JSONObject newJsonObject = JSON.parseObject(resultJsonObject);
+    			resultJsonArray.add(newJsonObject);
+    		}
+    	}
+    	return resultJsonArray.toJSONString();
     }
 
 }

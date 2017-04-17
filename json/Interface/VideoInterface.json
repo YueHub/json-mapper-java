@@ -1,0 +1,81 @@
+{
+    "semInterface" : {
+          "document" : {
+               "impl" : {
+                    "interface" : "root"
+               },
+               "props" : {
+                    "id" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : true,
+                         "required" : true,
+                         "desc" : "UUID"
+                    },
+                    "crawerTime" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : true,
+                         "desc" : "数据爬取时间戳"
+                    },
+                    "webUrl" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : true,
+                         "desc" : "URL"
+                    },
+                    "title" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : true,
+                         "desc" : "标题"
+                    },
+                    "params" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : true,
+                         "desc" : "params"
+                    },
+                    "name" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : true,
+                         "desc" : "视频名称"
+                    },
+                    "writer" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : false,
+                         "desc" : "视频作者"
+                    },
+                    "description" : {
+                         "isArr" : false,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : false,
+                         "desc" : "视频描述"
+                    },
+                    "comments" : {
+                         "isArr" : true,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : false,
+                         "desc" : "视频描述"
+                    },
+                    "tags" : {
+                         "isArr" : true,
+                         "dataType" : "String",
+                         "unique" : false,
+                         "required" : false,
+                         "desc" : "视频标签"
+                    }
+               }
+          }
+     }
+}
