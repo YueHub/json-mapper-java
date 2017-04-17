@@ -7,7 +7,7 @@ Json数据格式映射
 此项目通过配置文件实现语义映射.
 
 实现原理如下:
-![image](https://github.com/YueHub/JsonFormat/blob/master/pics/原理1.png)
+![image](https://github.com/YueHub/JsonFormat/blob/master/pics/Image.png)
 
 按数据的应用需求将爬虫数据分为几个类型,如视频类,其中爱奇艺,腾讯视频中的大部分数据(视频类APP中的部分数据可能属于其他类型)等并是视频类的实例.则设计两类语义文件
 1. 视频类型接口定义
