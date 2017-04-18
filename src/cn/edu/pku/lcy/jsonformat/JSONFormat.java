@@ -46,7 +46,7 @@ public class JSONFormat {
     	}
     	
     	JSONObject jsonObject = JSON.parseObject(jsonStr);
-    	if (jsonObject.get("semtype") != null) {
+    	if (jsonObject.get("semtype") != null && jsonObject.size() != 1) {	// 加上jsonObject.size() == 1条件标识区别出人为添加的semTypeObject
     		String semType = jsonObject.get("semtype").toString();
             String semImplFileName = semType + ProjectConst.CONFIG_FILE_POSTFIX;
             // 语义实例文件
@@ -124,9 +124,9 @@ public class JSONFormat {
             }
             return resultJsonObject.toJSONString();
     	} else {
-    		throw new Exception("semtype未定义");
+    		return "";
     	}
-    	
+		
     }
     
     /**
@@ -144,8 +144,13 @@ public class JSONFormat {
     	}
     	
     	JSONArray jsonArray = null;
+    	String semType = null;
     	try {
     		jsonArray = JSON.parseArray(jsonStr);
+    		semType = jsonArray.getJSONObject(jsonArray.size() - 1).getString("semtype");
+    		if(semType == null) {
+    			throw new Exception("semtype没有设置");
+    		}
     	} catch (Exception e) {
     		e.printStackTrace();
     		throw new Exception("json数组格式错误");
@@ -154,6 +159,7 @@ public class JSONFormat {
     	if (jsonArray != null) {
     		for (Object object : jsonArray) {
     			JSONObject jsonObject = (JSONObject) JSON.toJSON(object);
+    			jsonObject.put("semtype", semType);
     			String resultJsonObject = JSONFormat.jsonObjectFormat(jsonObject.toJSONString());
     			JSONObject newJsonObject = JSON.parseObject(resultJsonObject);
     			resultJsonArray.add(newJsonObject);

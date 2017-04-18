@@ -2,11 +2,19 @@
 Json数据格式映射
 ### 调用说明
 启动测试模式－将json-format.properties文件中的testMode设置为true
+
 JSONFormat.jsonObjectFormat(null);	// 解析一条json对象
 JSONFormat.jsonArrayFormat(null);	// 解析json数组
 
 正式使用时将json-format.properties文件中的testMode设置为false
+设需要处理的原始数据为jsonObject或jsonArray
+则需要添加semType标识
+jsonObject.put("semtype", "IqiyiVideo");
 JSONFormat.jsonObjectFormat(json字符串);	// 解析一条json对象
+
+JSONObject jsonObject = new JSONObject();
+jsonObject.put("semtype", "IqiyiVideo");
+jsonArray.add(jsonObject);
 JSONFormat.jsonArrayFormat(json字符串);	// 解析json数组
 
 ### 原理
