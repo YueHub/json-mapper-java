@@ -19,7 +19,7 @@ import cn.edu.pku.lcy.jsonformat.util.IOUtil;
 public class JSONFormat {
 	
     public static void main(String args[]) throws Exception {
-    	if (Config.TEST_MODEL == true) { // 如果开启测试模式
+    	if (Config.TEST_MODE == true) { // 如果开启测试模式
     		String testJson = IOUtil.readFile(Config.TEST_FILE_PATH);
     		
     		// String result = JSONFormat.jsonObjectFormat(testJson);
@@ -38,10 +38,10 @@ public class JSONFormat {
      */
     public static String jsonObjectFormat(String jsonStr) throws Exception {
     	
-    	if (Config.TEST_MODEL == true && jsonStr == null) {	// 如果开启了测试模式
+    	if (Config.TEST_MODE == true && jsonStr == null) {	// 如果开启了测试模式
     		jsonStr = IOUtil.readFile(Config.TEST_FILE_PATH);
     	}
-    	if (Config.TEST_MODEL == false && jsonStr == null) {	// 如果为开启测试模式,调用方式错误
+    	if (Config.TEST_MODE == false && jsonStr == null) {	// 如果为开启测试模式,调用方式错误
     		throw new Exception("配置文件测试模式未开启,无法调用jsonObjectFormat(null)");
     	}
     	
@@ -131,10 +131,10 @@ public class JSONFormat {
      */
     public static String jsonArrayFormat(String jsonStr) throws Exception {
     	
-    	if (Config.TEST_MODEL == true && jsonStr == null) {	// 如果开启了测试模式
+    	if (Config.TEST_MODE == true && jsonStr == null) {	// 如果开启了测试模式
     		jsonStr = IOUtil.readFile(Config.TEST_FILE_PATH);
     	}
-    	if (Config.TEST_MODEL == false && jsonStr == null) {	// 如果为开启测试模式,调用方式错误
+    	if (Config.TEST_MODE == false && jsonStr == null) {	// 如果为开启测试模式,调用方式错误
     		throw new Exception("配置文件测试模式未开启,无法调用jsonObjectFormat(null)");
     	}
     	

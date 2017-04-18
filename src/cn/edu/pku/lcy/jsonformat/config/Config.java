@@ -9,7 +9,7 @@ public class Config {
 	
 	public static final String PROJECT_PROPERTIES = "json-format.properties";
 	
-	public static boolean TEST_MODEL = false;
+	public static boolean TEST_MODE = false;
 	
 	public static String ROOT_DIR = null;
 	
@@ -28,10 +28,10 @@ public class Config {
 			
 			ROOT_DIR = prop.getProperty("rootDir");
 			
-			if ("true".equals(prop.getProperty("testModel"))) {
-				TEST_MODEL = true;
+			if ("true".equals(prop.getProperty("testMode"))) {
+				TEST_MODE = true;
 			} else {
-				TEST_MODEL = false;
+				TEST_MODE = false;
 			}
 			TEST_FILE_PATH = ROOT_DIR + prop.getProperty("testFilePath");
 			SEMANTIC_INTERFACE_FILE_PATH = ROOT_DIR + prop.getProperty("semanticInterfaceFileDir");
