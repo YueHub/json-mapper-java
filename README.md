@@ -121,7 +121,7 @@ IqiyiVideo.json
             },
             "props" : {
                "重要的额外属性1" : {
-               		"path" : "content.重要的额外属性1",
+               	    "path" : "content.重要的额外属性1",
                     "isArr" : false,
                     "dataType" : "String",
                     "unique" : false,
@@ -129,7 +129,7 @@ IqiyiVideo.json
                     "desc" : "重要的额外属性1"
                 },
                "重要的额外属性2" : {
-               		"path" : "重要的额外属性2",
+               	    "path" : "重要的额外属性2",
                     "isArr" : false,
                     "dataType" : "String",
                     "unique" : false,
@@ -144,7 +144,7 @@ IqiyiVideo.json
                     "required" : true,
                     "desc" : "重要的额外属性2"
                 }
-			}
+	    }
         }
     }
 }
