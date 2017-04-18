@@ -64,7 +64,7 @@ public class JSONFormat {
             
             List<String> requiredFields = new ArrayList<String>();
             List<String> apiFields = new ArrayList<String>();
-            for(Object requiredField : requiredObject) {
+            for (Object requiredField : requiredObject) {
                 requiredFields.add(requiredField.toString());
             }
             
@@ -76,36 +76,36 @@ public class JSONFormat {
             JSONObject ipropsObject = idocumentObject.getJSONObject("props");
             LinkedHashMap<String, String> jsonMap = JSON.parseObject(ipropsObject.toString(), new TypeReference<LinkedHashMap<String, String>>() {});
             // 最终对外生成的接口数据
-            for(Entry<String, String> props : jsonMap.entrySet()) {
+            for (Entry<String, String> props : jsonMap.entrySet()) {
                 String key = props.getKey();
                 JSONObject metaPropObject = JSON.parseObject(props.getValue());
-                if("true".equals(metaPropObject.get("required").toString())) {
+                if ("true".equals(metaPropObject.get("required").toString())) {
                     apiFields.add(key);
                 }
             }
             apiFields.addAll(requiredFields);
             
             Map<String, String> fieldAndPath = new LinkedHashMap<String, String>();
-            for(String apiField : apiFields) {
+            for (String apiField : apiFields) {
                 fieldAndPath.put(apiField, apiField);
             }
-            for(Entry<String, String> sameAs : sameAsJsonMap.entrySet()) {
+            for (Entry<String, String> sameAs : sameAsJsonMap.entrySet()) {
                 fieldAndPath.put(sameAs.getKey(), sameAs.getValue());
             }
-            for(Entry<String, String> prop : propsJsonMap.entrySet()) {
+            for (Entry<String, String> prop : propsJsonMap.entrySet()) {
                 String path = JSON.parseObject(prop.getValue()).get("path").toString();
                 fieldAndPath.put(prop.getKey(), path);
             }
             
             JSONObject resultJsonObject = new JSONObject();	// 最终返回的结果
             // 根据路径进行映射
-            for(Entry<String, String> fieldPath : fieldAndPath.entrySet()) {
+            for (Entry<String, String> fieldPath : fieldAndPath.entrySet()) {
                 String[] paths = fieldPath.getValue().split("\\.");
                 String value = null;
                 JSONObject tempJSONObject = null;
-                if(paths.length == 1) {
+                if (paths.length == 1) {
                     value = paths[0];
-                } else if(paths.length > 1) {
+                } else if (paths.length > 1) {
                     tempJSONObject = jsonObject.getJSONObject(paths[0]);
                     for (int i = 1; i < paths.length - 1; i++) {
                         tempJSONObject = tempJSONObject.getJSONObject(paths[i]);
@@ -113,7 +113,7 @@ public class JSONFormat {
                     value = tempJSONObject.get(paths[paths.length-1]).toString();
                 }
                 
-                if(paths.length > 1) {
+                if (paths.length > 1) {
                 }
                 resultJsonObject.put(fieldPath.getKey(), value);
             }
@@ -146,8 +146,8 @@ public class JSONFormat {
     		throw new Exception("json数组格式错误");
     	}
     	JSONArray resultJsonArray = new JSONArray();
-    	if(jsonArray != null) {
-    		for(Object object : jsonArray) {
+    	if (jsonArray != null) {
+    		for (Object object : jsonArray) {
     			JSONObject jsonObject = (JSONObject) JSON.toJSON(object);
     			String resultJsonObject = JSONFormat.jsonObjectFormat(jsonObject.toJSONString());
     			JSONObject newJsonObject = JSON.parseObject(resultJsonObject);
