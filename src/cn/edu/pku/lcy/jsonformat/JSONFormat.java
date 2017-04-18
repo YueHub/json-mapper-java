@@ -110,7 +110,12 @@ public class JSONFormat {
                     for (int i = 1; i < paths.length - 1; i++) {
                         tempJSONObject = tempJSONObject.getJSONObject(paths[i]);
                     }
-                    value = tempJSONObject.get(paths[paths.length-1]).toString();
+                    if (tempJSONObject.get(paths[paths.length-1]) != null) {
+                    	value = tempJSONObject.get(paths[paths.length-1]).toString();
+                    } else {
+                    	value = "null";
+                    }
+                    
                 }
                 
                 if (paths.length > 1) {
