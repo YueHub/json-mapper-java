@@ -1,29 +1,55 @@
 将同一种类型的数据(比如爱奇艺/搜狐视频等视频类)的共同数据写到接口配置文件中.
 假设现在有如下格式的实例数据:
-{
-    "package_name": "com.qiyi.video",
-    "activity_name": "org.iqiyi.video.activity.PlayerActivity",
-    "web_url": "http://www.iqiyi.com/v_19rr9ulqu0.html",
-    "web_url_md5": "43FEDEA0FC5A9C3BB446D31C2A7941A8",
-    "title": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
-    "content": {
-        "writer": "天气直播间",
-        "tag": "社会 国语 国内",
-        "name": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
-        "description": "关注气象、气候、环保等相关新闻资讯，设置交通天气、灾害天气解读、预警预报资讯发布等板块；在重大灾害性天气（台风、暴雨洪涝等）来临时，将打通时段进行全程直播报道，展现灾害现场、提出防御指南，配以专家分析展望未来天气走势，对灾害天气可能给各行各业带来的影响进行跟踪报道。",
-        "重要的额外属性1" : "xxxxx",
-        "test" : {
-            "testInner" : "hello,world"
-        }
-    },
-    "type": "video",
-    "semtype" : "IqiyiVideo",
-    "params": {
-        "id": "v_19rr9ulqu0"
-    },
-    "crawl_timestamp": "1484830716778",
-    "重要的额外属性2" : "yyyyy"
-}
+[
+	{
+	    "package_name": "com.qiyi.video",
+	    "activity_name": "org.iqiyi.video.activity.PlayerActivity",
+	    "web_url": "http://www.iqiyi.com/v_19rr9ulqu0.html",
+	    "web_url_md5": "43FEDEA0FC5A9C3BB446D31C2A7941A8",
+	    "title": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
+	    "content": {
+		"writer": "天气直播间",
+		"tag": "社会 国语 国内",
+		"name": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
+		"description": "关注气象、气候、环保等相关新闻资讯，设置交通天气、灾害天气解读、预警预报资讯发布等板块；在重大灾害性天气（台风、暴雨洪涝等）来临时，将打通时段进行全程直播报道，展现灾害现场、提出防御指南，配以专家分析展望未来天气走势，对灾害天气可能给各行各业带来的影响进行跟踪报道。",
+		"重要的额外属性1" : "xxxxx",
+		"test" : {
+		    "testInner" : "hello,world"
+		}
+	    },
+	    "type": "video",
+	    "semtype" : "IqiyiVideo",
+	    "params": {
+		"id": "v_19rr9ulqu0"
+	    },
+	    "crawl_timestamp": "1484830716778",
+	    "重要的额外属性2" : "yyyyy"
+	},
+	{
+	    "package_name": "com.qiyi.video",
+	    "activity_name": "org.iqiyi.video.activity.PlayerActivity",
+	    "web_url": "http://www.iqiyi.com/v_19rr9ulqu0.html",
+	    "web_url_md5": "43FEDEA0FC5A9C3BB446D31C2A7941A8",
+	    "title": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
+	    "content": {
+		"writer": "天气直播间",
+		"tag": "社会 国语 国内",
+		"name": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
+		"description": "关注气象、气候、环保等相关新闻资讯，设置交通天气、灾害天气解读、预警预报资讯发布等板块；在重大灾害性天气（台风、暴雨洪涝等）来临时，将打通时段进行全程直播报道，展现灾害现场、提出防御指南，配以专家分析展望未来天气走势，对灾害天气可能给各行各业带来的影响进行跟踪报道。",
+		"重要的额外属性1" : "xxxxx",
+		"test" : {
+		    "testInner" : "hello,world"
+		}
+	    },
+	    "type": "video",
+	    "semtype" : "IqiyiVideo",
+	    "params": {
+		"id": "v_19rr9ulqu0"
+	    },
+	    "crawl_timestamp": "1484830716778",
+	    "重要的额外属性2" : "yyyyy"
+	}
+]
 
 接口文件说明如下:
 {
@@ -156,4 +182,43 @@
 }
 
 最终生成的json数据如下:
+[
+  {
+    "crawerTime": "crawerTime",
+    "重要的额外属性1": "xxxxx",
+    "testInner": "hello,world",
+    "webUrl": "webUrl",
+    "name": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
+    "description": "关注气象、气候、环保等相关新闻资讯，设置交通天气、灾害天气解读、预警预报资讯发布等板块；在重大灾害性天气（台风、暴雨洪涝等）来临时，将打通时段进行全程直播报道，展现灾害现场、提出防御指南，配以专家分析展望未来天气走势，对灾害天气可能给各行各业带来的影响进行跟踪报道。",
+    "id": "id",
+    "writer": "天气直播间",
+    "title": "title",
+    "params": "params",
+    "重要的额外属性2": "重要的额外属性2",
+    "tags": "社会 国语 国内"
+  },
+  {
+    "crawerTime": "crawerTime",
+    "重要的额外属性1": "xxxxx",
+    "testInner": "hello,world",
+    "webUrl": "webUrl",
+    "name": "天气直播间 ：日照偏少河津大棚黄瓜生长缓慢",
+    "description": "关注气象、气候、环保等相关新闻资讯，设置交通天气、灾害天气解读、预警预报资讯发布等板块；在重大灾害性天气（台风、暴雨洪涝等）来临时，将打通时段进行全程直播报道，展现灾害现场、提出防御指南，配以专家分析展望未来天气走势，对灾害天气可能给各行各业带来的影响进行跟踪报道。",
+    "id": "id",
+    "writer": "天气直播间",
+    "title": "title",
+    "params": "params",
+    "重要的额外属性2": "重要的额外属性2",
+    "tags": "社会 国语 国内"
+  }
+]
+
+调用说明：
+启动测试模式－将json-format.properties文件中的testMode设置为true
+JSONFormat.jsonObjectFormat(null);	// 解析一条json对象
+JSONFormat.jsonArrayFormat(null);	// 解析json数组
+
+正式使用时将json-format.properties文件中的testMode设置为false
+JSONFormat.jsonObjectFormat(json字符串);	// 解析一条json对象
+JSONFormat.jsonArrayFormat(json字符串);	// 解析json数组
 
