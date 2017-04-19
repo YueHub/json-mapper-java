@@ -1,25 +1,36 @@
 # JsonFormat
 Json数据格式映射
 ### 调用说明
-启动测试模式－将json-format.properties文件中的testMode设置为true
+测试模式－将json-format.properties文件中的testMode设置为true
 
-JSONFormat.jsonObjectFormat(null);	// 解析一条json对象
-JSONFormat.jsonArrayFormat(null);	// 解析json数组
+	JSONFormat.jsonObjectFormat(null);	// 解析一条json对象
 
-正式使用时将json-format.properties文件中的testMode设置为false
-设需要处理的原始数据为jsonObject或jsonArray
-则需要添加semType标识
-jsonObject.put("semtype", "IqiyiVideo");
-JSONFormat.jsonObjectFormat(json字符串);	// 解析一条json对象
+	JSONFormat.jsonArrayFormat(null);	// 解析json数组
 
-JSONObject jsonObject = new JSONObject();
-jsonObject.put("semtype", "IqiyiVideo");
-jsonArray.add(jsonObject);
-JSONFormat.jsonArrayFormat(json字符串);	// 解析json数组
+非测试模式-将json-format.properties文件中的testMode设置为false
+
+	设需要处理的原始数据为JSONObject
+
+	添加semType标识
+
+	jsonObject.put("semtype", "IqiyiVideo");
+	
+	JSONFormat.jsonObjectFormat(json字符串);	// 解析一条json对象
+	
+	设需要处理的原始数据为JSONArray
+	
+	JSONObject jsonObject = new JSONObject();
+	
+	jsonObject.put("semtype", "IqiyiVideo");
+	
+	jsonArray.add(jsonObject);
+	
+	JSONFormat.jsonArrayFormat(json字符串);	// 解析json数组
 
 ### 原理
 
-在移动搜索引擎项目中,不同爬虫爬取下来的数据格式千差万别,其中相同语义的字段在不同APP中名称不同,如视频标题在xxx1应用中可能取名为title,在xxx2应用中取名为name,
+在移动搜索引擎项目中,不同爬虫爬取下来的数据格式千差万别,其中相同语义的字段在不同APP中名称不同,如视频标题在xxx1应用中可能取名为title,在xxx2应用中取名为name.
+
 当需要对外提供视频类的数据时,需要对这些字段进行映射处理,将它们统一为同一名称如videoName.
 
 此项目通过配置文件实现语义映射.
